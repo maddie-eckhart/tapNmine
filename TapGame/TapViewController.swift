@@ -19,7 +19,7 @@ class TapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var workerButton1Count: Int = 0
     var workerButton1CurrentPrice: Int = 10
-    
+    var minerList: [Miner] = []
     var timer: Timer?
     
     @IBAction func tapButton(_ sender: Any) {
@@ -71,25 +71,45 @@ class TapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewSetup()
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableViewSetup()
         countLabel.text = "\(officialCount)"
         tapButton.layer.cornerRadius = tapButton.bounds.size.width/2;
         workerButton1.setTitle("Buy 1 click/second for 10", for: .normal)
-        // Do any additional setup after loading the view.
+        workerButton1.layer.borderColor = UIColor.MineColors.grey.cgColor
+    }
+    
+    func viewSetup() {
+        view.backgroundColor = UIColor.MineColors.sand
     }
     
     //MARK: Table View
     
+    func tableViewSetup() {
+        tableView.separatorInset = .zero
+        let miner1 = Miner(setImage: UIImage(named: "minerDude")!, setLevel: 1)
+        minerList.append(miner1)
+        let miner2 = Miner(setImage: UIImage(named: "minerDude")!, setLevel: 3)
+        minerList.append(miner2)
+        let miner3 = Miner(setImage: UIImage(named: "minerDude")!, setLevel: 5)
+        minerList.append(miner3)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return minerList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "minerCell", for: indexPath)
-        cell.tintColor = .blue
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "minerCell", for: indexPath) as! minerTableViewCell
+        cell.backgroundColor = UIColor.MineColors.cream
+        cell.levelLabel.text = "Level \(minerList[indexPath.row].level)"
+        cell.iconView.image = minerList[indexPath.row].image
 
         return cell
     }

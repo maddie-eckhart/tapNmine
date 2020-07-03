@@ -97,23 +97,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hire a miner to work for you!" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-f4-DXp">
-                                                    <rect key="frame" x="48" y="18" width="318" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv1-ee-vPJ">
+                                                    <rect key="frame" x="87" y="46" width="240" height="48"/>
+                                                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="25f-uB-2wJ"/>
+                                                        <constraint firstAttribute="width" constant="240" id="h3X-vE-sX6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <inset key="imageEdgeInsets" minX="-10" minY="5" maxX="0.0" maxY="5"/>
+                                                    <state key="normal" title="Button" image="gem"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hire a miner to work for you!" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-f4-DXp">
+                                                    <rect key="frame" x="97.5" y="16" width="219" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv1-ee-vPJ">
-                                                    <rect key="frame" x="115" y="50" width="185" height="39"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <connections>
-                                                        <action selector="hireMinerButtonTapped:" destination="6mB-iN-vfl" eventType="touchUpInside" id="Ys7-JM-Xww"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gv1-ee-vPJ" firstAttribute="centerX" secondItem="9PQ-fd-vpf" secondAttribute="centerX" id="4x6-eX-3kn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Gv1-ee-vPJ" secondAttribute="bottom" constant="-5" id="Fdn-FI-ORn"/>
+                                                <constraint firstItem="Gv1-ee-vPJ" firstAttribute="centerX" secondItem="Qll-f4-DXp" secondAttribute="centerX" id="MUP-1r-wpH"/>
+                                                <constraint firstItem="Qll-f4-DXp" firstAttribute="top" secondItem="9PQ-fd-vpf" secondAttribute="topMargin" constant="5" id="jWY-KN-src"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="hireMinerButton" destination="Gv1-ee-vPJ" id="WS6-g1-m26"/>
@@ -146,4 +153,7 @@
             <point key="canvasLocation" x="-347.82608695652175" y="-148.66071428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gem" width="48" height="48"/>
+    </resources>
 </document>

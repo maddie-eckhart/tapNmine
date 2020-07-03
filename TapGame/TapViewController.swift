@@ -95,6 +95,7 @@ class TapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         minerList.append(miner2)
         let miner3 = Miner(setImage: UIImage(named: "minerDude")!, setLevel: 5)
         minerList.append(miner3)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -102,10 +103,15 @@ class TapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return minerList.count
+        return minerList.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == minerList.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "hireMinerCell", for: indexPath) as! hireMinerTableViewCell
+            cell.hireMinerButton.addTarget(self, action: #selector(addMiner(_:)), for: .touchUpInside)
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "minerCell", for: indexPath) as! minerTableViewCell
         cell.backgroundColor = UIColor.MineColors.cream
         cell.levelLabel.text = "Level \(minerList[indexPath.row].level)"
@@ -115,6 +121,15 @@ class TapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Hello")
+        
+    }
+    
+    //MARK: Cell Functions
+    
+    @objc func addMiner(_ sender: UIButton) {
+        print("add miner")
+        let newMiner = Miner(setImage: UIImage(named: "minerDude")!, setLevel: 1)
+        minerList.append(newMiner)
+        tableView.reloadData()
     }
 }

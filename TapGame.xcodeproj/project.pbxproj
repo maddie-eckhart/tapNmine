@@ -62,16 +62,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C176B38D24AE6D74000E5753 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C176B38924AD9017000E5753 /* minerModel.swift */,
-				C176B38724AD8D0F000E5753 /* minerTableViewCell.swift */,
-				C176B38B24AE6D6A000E5753 /* hireMinerTableViewCell.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		C1A459F424AC15CB00A14982 = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				C1A45A0024AC15CB00A14982 /* AppDelegate.swift */,
-				C176B38D24AE6D74000E5753 /* Model */,
+				C176B38924AD9017000E5753 /* minerModel.swift */,
+				C176B38724AD8D0F000E5753 /* minerTableViewCell.swift */,
+				C176B38B24AE6D6A000E5753 /* hireMinerTableViewCell.swift */,
 				C11F278524AC16A300CC2B70 /* TapViewController.swift */,
 				C11F278324AC168400CC2B70 /* Main.storyboard */,
 				C1A45A0B24AC15CD00A14982 /* LaunchScreen.storyboard */,
